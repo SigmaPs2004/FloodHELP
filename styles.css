@@ -5,3 +5,36 @@ body{
 h1{
     color: white !important;
 }
+#walk{
+    position: absolute;
+  top: 40%;
+  left: 15%;
+  transform: translateY(-50%)
+    /* line-height: 100px; */
+    /* padding: 10px 0; */
+    /* border: 3px solid green; */
+    text-align: center;
+
+}
+#mobile{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translateY(-50%)
+      /* line-height: 100px; */
+      /* padding: 10px 0; */
+      /* border: 3px solid green; */
+      text-align: center;
+
+}
+#walks{
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    transform: translateY(-50%)
+      /* line-height: 100px; */
+      /* padding: 10px 0; */
+      /* border: 3px solid green; */
+      text-align: center;
+
+}
