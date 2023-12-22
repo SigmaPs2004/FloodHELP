@@ -48,7 +48,7 @@
                     those affected by flooding. Our dedicated team is ready to respond to your needs and ensure your
                     safety during these challenging times.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" class="btn btn-danger btn-lg px-4 me-md-2">Click For Immediate
+                    <button type="button" class="btn btn-danger btn-lg px-4 me-md-2" id="getLocationButton">Click For Immediate
                         Assistance</button>
                 </div>
             </div>
@@ -115,6 +115,43 @@
         <p class="text-center text-body-secondary" style="color: white  !important;">© 2023 Company, Inc</p>
 
     </footer>
+     <script>
+        
+        
+       
+        document.getElementById('getLocationButton').addEventListener('click', requestLocationPermission);
+
+function requestLocationPermission() {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        alert(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`);
+        const isWalkable = confirm('Is the location walkable? Click OK for Yes, Cancel for No.');
+
+        if (isWalkable) {
+          const mobileNumber = prompt('Please enter your mobile number:');
+          if (mobileNumber !== null) {
+            alert(`Thank you! Your mobile number ${mobileNumber} has been recorded. Redirecting to walkable page.`);
+            window.location.href = 'walkable-page.html';  // Redirect to walkable page
+          } else {
+            alert('Mobile number not provided. Redirecting to walkable page.');
+            window.location.href = 'walkable-page.html';  // Redirect to walkable page
+          }
+        } else {
+          alert('Location is not walkable. Redirecting to not walkable page.');
+          window.location.href = 'not-walkable-page.html';  // Redirect to not walkable page
+        }
+      },
+      function(error) {
+        alert(`Error getting location: ${error.message}`);
+      }
+    );
+  } else {
+    alert('Geolocation is not supported by your browser');
+  }
+}
+    </script>
+    
 
 
 </body>
